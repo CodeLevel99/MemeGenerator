@@ -2,4 +2,8 @@
     <string name="app_name">MemeGenerator</string>
     <string name="bottom_text">Bottom Text</string>
     <string name="top_text">Top Text</string>
+    <string name="photoButton">Take Photo</string>
+    <string name="topText">Enter your text here</string>
+    <string name="Bottom_text">Enter your text here</string>
+    <string name="go">Go</string>
 </resources>

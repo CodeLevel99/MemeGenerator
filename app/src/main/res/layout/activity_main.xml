@@ -11,14 +11,6 @@
     tools:context="com.example.derekshao.memegenerator.MainActivity">
 
     <fragment
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:name="com.example.derekshao.memegenerator.TopSectionFragment"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/fragment"
-        tools:layout="@layout/top_section_fragment" />
-
-    <fragment
         android:layout_width="275dp"
         android:name="com.example.derekshao.memegenerator.BottomSectionFragment"
         android:id="@+id/fragment2"
@@ -26,4 +18,23 @@
         android:layout_height="275dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:name="com.example.derekshao.memegenerator.TopSectionFragment"
+        android:id="@+id/fragment"
+        tools:layout="@layout/top_section_fragment"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="@string/photoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:onClick="takePhoto"
+        android:layout_alignBottom="@+id/fragment"
+        android:layout_alignEnd="@+id/fragment" />
+
 </RelativeLayout>
