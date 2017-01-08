@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.provider.MediaStore;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.View;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 
@@ -22,11 +23,12 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
     }
 
+    //inflates menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -34,18 +36,40 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
         return super.onCreateOptionsMenu(menu);
     }
 
+
+    //Adding and Handling actiosn from toolbar
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.action_takePhoto:
+                dispatchTakePictureIntent();
+                return true;
+            case R.id.action_restore:
+                restoreDefault();
+                return true;
+            case R.id.action_settings:
+                Toast.makeText(MainActivity.this, "Not avaliable.", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    //implemented method from top fragment, passes text to bottom fragment
     @Override
     public void createMeme(String top, String bottom) {
         BottomSectionFragment bottomFragment = (BottomSectionFragment) getSupportFragmentManager().findFragmentById(R.id.fragment2);
         bottomFragment.setMemeText(top, bottom);
     }
 
-    @Override
-    public void restoreDefault(Drawable image) {
+    //restores default gnome child image
+    public void restoreDefault() {
+        Drawable image = ResourcesCompat.getDrawable(getResources(), R.drawable.gnome_child, null);
         BottomSectionFragment bottomFragment = (BottomSectionFragment)getSupportFragmentManager().findFragmentById(R.id.fragment2);
-        bottomFragment.restorePicutre(image);
+        bottomFragment.restorePicture(image);
     }
 
+    //creates take picture intent
     public void dispatchTakePictureIntent() {
         Intent takePictureIntent =  new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
@@ -53,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
         }
     }
 
+    //result of photo intent
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -67,11 +92,6 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
             bottomFragment.setNewPicture(imageBitmap);
 
         }
-
-    }
-
-    public void takePhoto(View view) {
-        dispatchTakePictureIntent();
     }
 
 
