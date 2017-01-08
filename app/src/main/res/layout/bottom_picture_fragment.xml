@@ -13,7 +13,8 @@
         android:layout_marginTop="26dp"
         android:textSize="22sp"
         android:id="@+id/topMemeText"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        android:textColor="#FFFFFF"/>
 
     <TextView
         android:text="@string/bottom_text"
@@ -24,5 +25,6 @@
         android:id="@+id/bottomMemeText"
         android:gravity="center_horizontal"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:textColor="#FFFFFF"/>
 </RelativeLayout>

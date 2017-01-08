@@ -1,6 +1,7 @@
 package com.example.derekshao.memegenerator;
 
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -25,6 +26,9 @@ public class BottomSectionFragment extends Fragment {
         topText = (TextView)view.findViewById(R.id.topMemeText);
         bottomText = (TextView)view.findViewById(R.id.bottomMemeText);
         layout = (RelativeLayout)view.findViewById(R.id.bottomLayout);
+        Typeface myCustomFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/impact.ttf");
+        topText.setTypeface(myCustomFont);
+        bottomText.setTypeface(myCustomFont);
 
         return view;
     }
