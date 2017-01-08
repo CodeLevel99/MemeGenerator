@@ -1,36 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/topLayout">
 
     <EditText
         android:id="@+id/bottomTextInput"
-        android:text="Enter your text here"
+        android:text="@string/Bottom_text"
         android:textAlignment="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
         android:width="300dp"
         android:layout_below="@+id/topTextInput"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        tools:ignore="TextFields" />
 
     <EditText
         android:id="@+id/topTextInput"
-        android:text="Enter your text here"
+        android:text="@string/topText"
         android:textAlignment="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:width="300dp"
         android:layout_marginTop="11dp"
         android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/bottomTextInput"
+        tools:ignore="TextFields" />
+
+    <Button
+        android:id="@+id/memeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/go"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/bottomTextInput"
         android:layout_alignStart="@+id/bottomTextInput" />
 
     <Button
-        android:id="@+id/button"
+        android:text="@string/restore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go"
-        android:layout_below="@+id/bottomTextInput"
+        android:layout_alignTop="@+id/memeButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp" />
+        android:id="@+id/restoreButton" />
 
 </RelativeLayout>

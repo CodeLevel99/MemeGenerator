@@ -3,6 +3,7 @@ package com.example.derekshao.memegenerator;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -28,6 +29,12 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
     public void createMeme(String top, String bottom) {
         BottomSectionFragment bottomFragment = (BottomSectionFragment) getSupportFragmentManager().findFragmentById(R.id.fragment2);
         bottomFragment.setMemeText(top, bottom);
+    }
+
+    @Override
+    public void restoreDefault(Drawable image) {
+        BottomSectionFragment bottomFragment = (BottomSectionFragment)getSupportFragmentManager().findFragmentById(R.id.fragment2);
+        bottomFragment.restorePicutre(image);
     }
 
     public void dispatchTakePictureIntent() {
