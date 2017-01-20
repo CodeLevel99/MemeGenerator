@@ -14,11 +14,15 @@
         android:title="Take Photo"
         app:showAsAction="ifRoom"
         />
-
+    <item android:id="@+id/action_selectImage"
+          android:icon="@android:drawable/gallery_thumb"
+          android:title="selectPhoto"
+        app:showAsAction="never"/>
 
     <item android:id="@+id/action_settings"
         android:title="Settings"
         app:showAsAction="never"/>
+
 
 
 </menu>

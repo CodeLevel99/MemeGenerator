@@ -50,6 +50,10 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
             case R.id.action_settings:
                 Toast.makeText(MainActivity.this, "Not avaliable.", Toast.LENGTH_SHORT).show();
                 return true;
+            case R.id.action_selectImage:
+                Intent start_image_selector = new Intent(this, selectImage.class);
+                startActivity(start_image_selector);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
