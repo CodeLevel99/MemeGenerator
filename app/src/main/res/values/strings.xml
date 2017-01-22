@@ -7,4 +7,5 @@
     <string name="Bottom_text">Enter your text here</string>
     <string name="go">Go</string>
     <string name="restore">Default</string>
+    <string name="select_image">Select Image</string>
 </resources>

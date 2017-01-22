@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
     }
 
 
-    //Adding and Handling actiosn from toolbar
+    //Adding and Handling actions from toolbar
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
@@ -97,6 +97,4 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
 
         }
     }
-
-
 }

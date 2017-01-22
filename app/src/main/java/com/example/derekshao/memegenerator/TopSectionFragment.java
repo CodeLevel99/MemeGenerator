@@ -23,6 +23,7 @@ public class TopSectionFragment extends Fragment {
 
     TopSectionListener activityCommander;
 
+    //create interface to ensure MainActivity contains createMeme method
     public interface TopSectionListener {
         void createMeme(String top, String bottom);
     }
@@ -53,6 +54,7 @@ public class TopSectionFragment extends Fragment {
         bottomTextInput = (EditText)view.findViewById(R.id.bottomTextInput);
         final Button button = (Button) view.findViewById(R.id.memeButton);
 
+        //listen for button clicked to use createMeme method
         button.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -65,6 +67,7 @@ public class TopSectionFragment extends Fragment {
         return view;
     }
 
+    //uses override method createMeme from MainActivity
     public void buttonClicked(View v) {
         activityCommander.createMeme(topTextInput.getText().toString(), bottomTextInput.getText().toString());
     }

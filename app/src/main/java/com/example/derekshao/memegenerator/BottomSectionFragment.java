@@ -26,6 +26,8 @@ public class BottomSectionFragment extends Fragment {
         topText = (TextView)view.findViewById(R.id.topMemeText);
         bottomText = (TextView)view.findViewById(R.id.bottomMemeText);
         layout = (RelativeLayout)view.findViewById(R.id.bottomLayout);
+
+        //changed font to impact.ttf
         Typeface myCustomFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/impact.ttf");
         topText.setTypeface(myCustomFont);
         bottomText.setTypeface(myCustomFont);
@@ -40,6 +42,7 @@ public class BottomSectionFragment extends Fragment {
     }
 
     public void setNewPicture(Bitmap image) {
+        //change Bitmap to drawable(?)
         layout.setBackground(new BitmapDrawable(getResources(), image));
     }
 
