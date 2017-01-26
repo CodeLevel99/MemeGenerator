@@ -41,9 +41,9 @@ public class BottomSectionFragment extends Fragment {
         bottomText.setText(bottom);
     }
 
-    public void setNewPicture(Bitmap image) {
+    public void setNewPicture(Drawable image) {
         //change Bitmap to drawable(?)
-        layout.setBackground(new BitmapDrawable(getResources(), image));
+        layout.setBackground(image);
     }
 
     public void restorePicture(Drawable image) {

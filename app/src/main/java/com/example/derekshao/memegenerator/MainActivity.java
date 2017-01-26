@@ -2,6 +2,7 @@ package com.example.derekshao.memegenerator;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.provider.MediaStore;
 import android.support.v4.content.res.ResourcesCompat;
@@ -11,7 +12,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-
 
 public class MainActivity extends AppCompatActivity implements TopSectionFragment.TopSectionListener {
 
@@ -92,8 +92,9 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
             }
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
+            Drawable image = new BitmapDrawable(getResources(), imageBitmap);
             BottomSectionFragment bottomFragment = (BottomSectionFragment) getSupportFragmentManager().findFragmentById(R.id.fragment2);
-            bottomFragment.setNewPicture(imageBitmap);
+            bottomFragment.setNewPicture(image);
 
         }
     }
