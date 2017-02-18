@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "C:\\Users\\Derek Shao\\AndroidStudioProjects\\MemeGenerator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_menu_camera.png",
+        "source": "C:\\Users\\Derek Shao\\AndroidStudioProjects\\MemeGenerator\\app\\src\\main\\res\\drawable-xhdpi\\ic_menu_camera.png"
+    },
+    {
+        "merged": "C:\\Users\\Derek Shao\\AndroidStudioProjects\\MemeGenerator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_menu_revert.png",
+        "source": "C:\\Users\\Derek Shao\\AndroidStudioProjects\\MemeGenerator\\app\\src\\main\\res\\drawable-xhdpi\\ic_menu_revert.png"
+    },
+    {
+        "merged": "C:\\Users\\Derek Shao\\AndroidStudioProjects\\MemeGenerator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\arthur_hand.png",
+        "source": "C:\\Users\\Derek Shao\\AndroidStudioProjects\\MemeGenerator\\app\\src\\main\\res\\drawable-xhdpi\\arthur_hand.png"
+    },
+    {
+        "merged": "C:\\Users\\Derek Shao\\AndroidStudioProjects\\MemeGenerator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_settings.png",
+        "source": "C:\\Users\\Derek Shao\\AndroidStudioProjects\\MemeGenerator\\app\\src\\main\\res\\drawable-xhdpi\\ic_settings.png"
+    },
+    {
+        "merged": "C:\\Users\\Derek Shao\\AndroidStudioProjects\\MemeGenerator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\pepe.png",
+        "source": "C:\\Users\\Derek Shao\\AndroidStudioProjects\\MemeGenerator\\app\\src\\main\\res\\drawable-xhdpi\\pepe.png"
+    },
+    {
+        "merged": "C:\\Users\\Derek Shao\\AndroidStudioProjects\\MemeGenerator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\evil_kermit.png",
+        "source": "C:\\Users\\Derek Shao\\AndroidStudioProjects\\MemeGenerator\\app\\src\\main\\res\\drawable-xhdpi\\evil_kermit.png"
+    }
+]

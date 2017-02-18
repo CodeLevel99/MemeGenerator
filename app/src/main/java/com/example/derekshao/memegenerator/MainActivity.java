@@ -11,11 +11,22 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements TopSectionFragment.TopSectionListener {
 
+    //widgets
     private Toolbar toolbar;
+    private TextView topText;
+    private TextView bottomText;
+    private EditText editTopText;
+    private EditText editBottomText;
+    private ImageView meme_photo;
+
+
     private static int REQUEST_IMAGE_CAPTURE = 1;
     private static int PICK_IMAGE = 1;
 
@@ -23,8 +34,18 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //toolbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //topText
+        topText = (TextView) findViewById(R.id.topMemeText);
+        bottomText = (TextView) findViewById(R.id.bottomMemeText);
+        editTopText = (EditText) findViewById(R.id.topTextInput);
+        editBottomText = (EditText) findViewById(R.id.bottomTextInput);
+
+
 
     }
 
@@ -62,15 +83,12 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
     //implemented method from top fragment, passes text to bottom fragment
     @Override
     public void createMeme(String top, String bottom) {
-        BottomSectionFragment bottomFragment = (BottomSectionFragment) getSupportFragmentManager().findFragmentById(R.id.fragment2);
-        bottomFragment.setMemeText(top, bottom);
+
     }
 
     //restores default gnome child image
     public void restoreDefault() {
         Drawable image = ResourcesCompat.getDrawable(getResources(), R.drawable.gnome_child, null);
-        BottomSectionFragment bottomFragment = (BottomSectionFragment)getSupportFragmentManager().findFragmentById(R.id.fragment2);
-        bottomFragment.restorePicture(image);
     }
 
     //creates take picture intent
@@ -93,9 +111,18 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             Drawable image = new BitmapDrawable(getResources(), imageBitmap);
-            BottomSectionFragment bottomFragment = (BottomSectionFragment) getSupportFragmentManager().findFragmentById(R.id.fragment2);
-            bottomFragment.setNewPicture(image);
+
 
         }
+    }
+
+    public void setMemeText(String top, String bottom) {
+
+        topText.setText(top);
+        bottomText.setText(bottom);
+    }
+
+    public void setNewPicture(Drawable image) {
+
     }
 }

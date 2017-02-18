@@ -9,7 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+
 
 public class selectImage extends AppCompatActivity {
 
@@ -34,23 +34,21 @@ public class selectImage extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     String img_name = String.valueOf(parent.getItemAtPosition(position));
-                    BottomSectionFragment bottom = (BottomSectionFragment)getSupportFragmentManager().findFragmentById(R.id.fragment2);
 
                     switch(img_name) {
                         case "Arthur":
-                            bottom.setNewPicture(arthur_hand);
+
                             onDestroy();
                             break;
                         case "Pepe":
-                            bottom.setNewPicture(pepe);
+
                             break;
                         case "Evil Kermit":
-                            bottom.setNewPicture(evil_kermit);
+
                             break;
                         default:
                             break;
                     }
-
                 }
             }
         );

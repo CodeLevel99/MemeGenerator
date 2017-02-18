@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_restore"
+        android:title="@+id/Restore"
+        android:icon="@drawable/ic_menu_revert"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_takePhoto"
+        android:icon="@drawable/ic_menu_camera"
+        android:title="Take Photo"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/action_selectImage"
+        android:icon="@android:drawable/gallery_thumb"
+        android:title="@string/select_image"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_settings"
+        android:title="Settings"
+        app:showAsAction="never"/>
+
+
+
+</menu>

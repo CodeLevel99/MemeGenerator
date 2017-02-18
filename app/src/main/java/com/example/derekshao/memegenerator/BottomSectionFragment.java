@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.RelativeLayout;
 
+
 public class BottomSectionFragment extends Fragment {
 
     private TextView topText;
@@ -43,10 +44,10 @@ public class BottomSectionFragment extends Fragment {
 
     public void setNewPicture(Drawable image) {
         //change Bitmap to drawable(?)
-        layout.setBackground(image);
+
     }
 
     public void restorePicture(Drawable image) {
-        layout.setBackground(image);
+
     }
 }
