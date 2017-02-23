@@ -9,3 +9,6 @@ Features include:
 
 
 ![Alt text](/app/src/main/res/drawable-xxhdpi/gnome_child.png?raw=true "hey")
+![Alt text](/app/src/main/res/drawable-xhdpi/evil_kermit.png?raw=true "hey")
+![Alt text](/app/src/main/res/drawable-xhdpi/pepe.png?raw=true "hey")
+
