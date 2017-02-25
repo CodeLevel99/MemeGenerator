@@ -5,8 +5,18 @@ Features include:
 
 - taking pictures with your device and using it as a meme!
 - choosing from a wide variety of pictures!
-- runtime error when starting list view activity and click any of the options listed there (FIXED - Feb. 25, 2017)
+- inputing your own clever and witty words for your meme!
+- runtime error when starting list view activity and click any of the options listed there (FIXED - Feb. 25, 2017 - you could now select new images)
 
+Upcoming Features
+
+- Accessing your images from your phone
+- Changing fonts/colors of text
+- Saving your meme to your phone
+
+And then I'm abandoning this garbage application.
+
+Thanks for reading! :)
 
 ![Alt text](/app/src/main/res/drawable-xxhdpi/gnome_child.png?raw=true "hey")
 ![Alt text](/app/src/main/res/drawable-xhdpi/evil_kermit.png?raw=true "hey")
