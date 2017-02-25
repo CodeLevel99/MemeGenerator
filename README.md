@@ -5,7 +5,7 @@ Features include:
 
 - taking pictures with your device and using it as a meme!
 - choosing from a wide variety of pictures!
-- runtime error when starting list view activity and click any of the options listed there
+- runtime error when starting list view activity and click any of the options listed there (FIXED - Feb. 25, 2017)
 
 
 ![Alt text](/app/src/main/res/drawable-xxhdpi/gnome_child.png?raw=true "hey")
