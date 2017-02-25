@@ -68,7 +68,7 @@ public class TopSectionFragment extends Fragment {
     }
 
     //uses override method createMeme from MainActivity
-    public void buttonClicked(View v) {
+    public void buttonClicked(View view) {
         activityCommander.createMeme(topTextInput.getText().toString(), bottomTextInput.getText().toString());
     }
 

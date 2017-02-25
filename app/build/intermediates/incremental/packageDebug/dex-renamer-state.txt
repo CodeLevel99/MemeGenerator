@@ -1,4 +1,4 @@
-#Mon Jan 23 23:07:31 EST 2017
+#Sat Feb 25 15:49:08 EST 2017
 base.0=C\:\\Users\\Derek Shao\\AndroidStudioProjects\\MemeGenerator\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_ff36d4aa2c2bc3eda83c42df7c3c635e7e699f66
 renamed.1=classes.dex
 renamed.0=classes2.dex

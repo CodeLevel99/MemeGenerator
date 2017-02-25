@@ -43,7 +43,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="d33b118fbc73c67e65b4f88f2fb6e42e5a77ab53">
+        sha1="ce041fbcd0cfd62068f94b2680e96b623f28794f">
         <dex dex="C:\Users\Derek Shao\AndroidStudioProjects\MemeGenerator\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_b95c0496a0acba9a228353b2de494426de2c0bf5\classes.dex" />
     </item>
     <item
@@ -88,7 +88,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="91d5566c7401ecb0ef94dad8113a53cf4734bac0">
+        sha1="609fc27a35d32ad5c2f2e77eb33afe26e5dce769">
         <dex dex="C:\Users\Derek Shao\AndroidStudioProjects\MemeGenerator\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_ff36d4aa2c2bc3eda83c42df7c3c635e7e699f66\classes.dex" />
     </item>
     <item

@@ -16,26 +16,28 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
+    <ImageView
+        android:layout_height="wrap_content"
+        android:background="@drawable/gnome_child"
+        android:id="@+id/photoImage"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/memeButton"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        />
+
     <TextView
         android:text="@string/bottom_text"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="23dp"
         android:textSize="22sp"
         android:id="@+id/bottomMemeText"
         android:gravity="center_horizontal"
+        android:textColor="#FFFFFF"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#FFFFFF"/>
-
-    <Button
-        android:id="@+id/memeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/go"
-        android:layout_centerVertical="true"
-        android:layout_alignEnd="@+id/bottomTextInput"
-        android:layout_marginEnd="96dp" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:id="@+id/bottomTextInput"
@@ -45,10 +47,28 @@
         android:layout_height="wrap_content"
         android:width="300dp"
         tools:ignore="TextFields"
-        android:layout_above="@+id/memeButton"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="14dp" />
+        android:layout_below="@+id/topTextInput"
+        android:layout_alignStart="@+id/topTextInput" />
+
+    <Button
+        android:id="@+id/memeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/go"
+        android:layout_below="@+id/bottomTextInput"
+        android:layout_alignEnd="@+id/topMemeText" />
+
+    <TextView
+        android:text="@string/top_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:id="@+id/topMemeText"
+        android:gravity="center_horizontal"
+        android:textColor="#FFFFFF"
+        android:layout_alignTop="@+id/photoImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp" />
 
     <EditText
         android:id="@+id/topTextInput"
@@ -58,20 +78,9 @@
         android:layout_height="wrap_content"
         android:width="300dp"
         tools:ignore="TextFields"
-        android:layout_above="@+id/bottomTextInput"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="19dp" />
+        android:layout_marginTop="23dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true" />
 
-    <TextView
-        android:text="@string/top_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="22sp"
-        android:id="@+id/topMemeText"
-        android:gravity="center_horizontal"
-        android:textColor="#FFFFFF"
-        android:layout_above="@+id/bottomMemeText"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="20dp" />
 
 </RelativeLayout>
