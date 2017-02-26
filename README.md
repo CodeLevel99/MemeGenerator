@@ -1,5 +1,5 @@
 # MemeGenerator
-A meme generator created for Android mobile devices. Saves maybe 20 more seconds than opening Paint on your computer and adding text boxes. 
+A meme generator created for Android mobile devices. Much faster than opening Paint (or Preview, can't forget the Mac users) on your computer and adding text boxes to your image.
 
 Features include:
 
