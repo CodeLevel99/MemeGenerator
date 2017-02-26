@@ -8,7 +8,7 @@ Features include:
 - inputing your own clever and witty words for your meme!
 - runtime error when starting list view activity and click any of the options listed there (FIXED - Feb. 25, 2017 - you could now select new images)
 
-![Alt text](/app/src/main/res/drawable-xxhdpi/gnome_child.png?raw=true "hey")
+![Alt text](/app/src/main/res/drawable-xhdpi/evil_kermit.png?raw=true "hey")
 
 Upcoming Features
 
@@ -22,7 +22,7 @@ And then I'm abandoning this garbage application.
 
 Thanks for reading! :)
 
-![Alt text](/app/src/main/res/drawable-xhdpi/evil_kermit.png?raw=true "hey")
+![Alt text](/app/src/main/res/drawable-xxhdpi/gnome_child.png?raw=true "hey")
 
 
 
