@@ -5,40 +5,29 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="256943525512287"
-    token="1503919518629000176"
-    verifier="METHOD_DELETED" >
+    timestamp="558797565924025"
+    token="1503919518629000176" >
 
     <task
         name="javac"
-        duration="360" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="63" />
+        duration="0" />
     <task
         name="verifier"
-        duration="7" />
-
-    <artifact
-        location="C:\Users\Derek Shao\AndroidStudioProjects\MemeGenerator\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
-        type="DEX" />
+        duration="0" />
 
     <build
-        timestamp="255845096600196"
+        timestamp="558140625531893"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\Derek Shao\AndroidStudioProjects\MemeGenerator\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
-    <build
-        timestamp="256943525512287"
-        verifier="METHOD_DELETED" >
-        <artifact
-            location="C:\Users\Derek Shao\AndroidStudioProjects\MemeGenerator\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
-            type="DEX" />
-    </build>
+    <build timestamp="558797565924025" />
 
 </instant-run>
