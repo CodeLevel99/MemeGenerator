@@ -14,7 +14,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,14 +24,15 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
     private Toolbar toolbar;
     private TextView topMemeText;
     private TextView bottomMemeText;
-    private EditText editTopText;
-    private EditText editBottomText;
     private ImageView meme_photo;
 
+    //request codes
     private static int REQUEST_IMAGE_CAPTURE = 1;
-    private static int PICK_IMAGE = 1;
+    //private static int PICK_IMAGE = 1;
     private static int SELECT_IMAGE = 2;
 
+
+    //debug tag
     private static String TAG = "derekishere";
 
 
@@ -48,11 +48,8 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
         //textviews
         topMemeText = (TextView) findViewById(R.id.topMemeText);
         bottomMemeText = (TextView) findViewById(R.id.bottomMemeText);
-        //editTopText = (EditText) findViewById(R.id.topTextInput);
-        //editBottomText = (EditText) findViewById(R.id.bottomTextInput);
 
         meme_photo = (ImageView) findViewById(R.id.photoImage);
-
 
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/impact.ttf");
         topMemeText.setTypeface(myCustomFont);
@@ -67,7 +64,6 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
         getMenuInflater().inflate(R.menu.toolbar, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
 
     //Adding and Handling actions from toolbar
     @Override
@@ -84,8 +80,10 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
                 Toast.makeText(MainActivity.this, "Not available currently.", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.action_selectImage:
-                Intent start_image_selector = new Intent(this, selectImage.class);
-                startActivityForResult(start_image_selector, SELECT_IMAGE);
+                selectImageIntent();
+                return true;
+            case R.id.action_save:
+                saveImage();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -95,12 +93,19 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
     //implemented method from top fragment
     @Override
     public void createMeme(String top, String bottom) {
-        topMemeText.setText(top);
-        bottomMemeText.setText(bottom);
+        Log.v(TAG, "reached mainactivity");
+        setMemeText(top, bottom);
+    }
+
+    public void saveImage() {
+        meme_photo.setDrawingCacheEnabled(true);
+        Bitmap meme = meme_photo.getDrawingCache();
+        MediaStore.Images.Media.insertImage(MainActivity.this.getContentResolver(), meme, "Meme", "Meme description");
     }
 
     //restores default gnome child image
     public void restoreDefault() {
+        Log.v(TAG, "reached");
         Drawable image = ResourcesCompat.getDrawable(getResources(), R.drawable.gnome_child, null);
         meme_photo.setBackground(image);
     }
@@ -113,11 +118,17 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
         }
     }
 
-    //result of photo intent
+    //creates select image intent
+    public void selectImageIntent() {
+        Intent start_image_selector = new Intent(this, selectImage.class);
+        startActivityForResult(start_image_selector, SELECT_IMAGE);
+    }
+
+    //result
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             if (data == null) {
                 Toast.makeText(MainActivity.this, "No image was taken.", Toast.LENGTH_SHORT).show();
                 return;
@@ -126,13 +137,12 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             Drawable image = new BitmapDrawable(getResources(), imageBitmap);
             meme_photo.setBackground(image);
-
-
         }
         else if (requestCode == SELECT_IMAGE) {
 
             Bundle extras = data.getExtras();
             String img_name = extras.getString("image");
+
             switch(img_name) {
                 case "Arthur":
                     Drawable arthur_hand = ResourcesCompat.getDrawable(getResources(), R.drawable.arthur_hand, null);
@@ -153,12 +163,7 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
     }
 
     public void setMemeText(String top, String bottom) {
-
         topMemeText.setText(top);
         bottomMemeText.setText(bottom);
-    }
-
-    public void setNewPicture(Drawable image) {
-
     }
 }

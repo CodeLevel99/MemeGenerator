@@ -2,6 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+    <item
+        android:id="@+id/action_save"
+        android:title="Save Image"
+        android:icon="@drawable/ic_settings"
+        app:showAsAction="always" />
+
     <item
         android:id="@+id/action_restore"
         android:title="@+id/Restore"
@@ -12,8 +19,7 @@
         android:id="@+id/action_takePhoto"
         android:icon="@drawable/ic_menu_camera"
         android:title="Take Photo"
-        app:showAsAction="ifRoom"
-        />
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_selectImage"
         android:icon="@android:drawable/gallery_thumb"

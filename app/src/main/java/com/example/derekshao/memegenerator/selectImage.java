@@ -11,12 +11,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.util.Log;
+
 
 
 public class selectImage extends AppCompatActivity {
-
-    private static String TAG = "derekishere";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +27,6 @@ public class selectImage extends AppCompatActivity {
         ListAdapter imgAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, image_names);
         ListView list = (ListView)findViewById(R.id.image_list);
         list.setAdapter(imgAdapter);
-
-        final Drawable pepe = ResourcesCompat.getDrawable(getResources(), R.drawable.pepe, null);
-        final Drawable arthur_hand = ResourcesCompat.getDrawable(getResources(), R.drawable.arthur_hand, null);
-        final Drawable evil_kermit = ResourcesCompat.getDrawable(getResources(), R.drawable.evil_kermit, null);
 
         list.setOnItemClickListener(
             new AdapterView.OnItemClickListener() {
