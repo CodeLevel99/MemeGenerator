@@ -1,6 +1,5 @@
 package com.example.derekshao.memegenerator;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
@@ -28,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
 
     //request codes
     private static int REQUEST_IMAGE_CAPTURE = 1;
-    //private static int PICK_IMAGE = 1;
     private static int SELECT_IMAGE = 2;
 
 
@@ -93,14 +91,21 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
     //implemented method from top fragment
     @Override
     public void createMeme(String top, String bottom) {
-        Log.v(TAG, "reached mainactivity");
         setMemeText(top, bottom);
     }
 
     public void saveImage() {
+        Log.v(TAG, "save image");
         meme_photo.setDrawingCacheEnabled(true);
-        Bitmap meme = meme_photo.getDrawingCache();
-        MediaStore.Images.Media.insertImage(MainActivity.this.getContentResolver(), meme, "Meme", "Meme description");
+        try {
+            Bitmap meme = meme_photo.getDrawingCache();
+            MediaStore.Images.Media.insertImage(MainActivity.this.getContentResolver(), meme, "Meme", "Meme description");
+            Toast.makeText(MainActivity.this, "Image saved successfuly.", Toast.LENGTH_LONG).show();
+        }
+        catch(Exception e) {
+            Toast.makeText(MainActivity.this, "Unable to save image.", Toast.LENGTH_LONG).show();
+        }
+
     }
 
     //restores default gnome child image
@@ -138,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
             Drawable image = new BitmapDrawable(getResources(), imageBitmap);
             meme_photo.setBackground(image);
         }
-        else if (requestCode == SELECT_IMAGE) {
+        else if (requestCode == SELECT_IMAGE && resultCode == RESULT_OK) {
 
             Bundle extras = data.getExtras();
             String img_name = extras.getString("image");

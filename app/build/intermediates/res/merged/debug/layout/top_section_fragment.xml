@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:id="@+id/topLayout">
+    android:id="@+id/activity_toplayout">
 
     <EditText
         android:id="@+id/bottomTextInput"
@@ -14,6 +14,8 @@
         android:width="300dp"
         android:layout_below="@+id/topTextInput"
         android:layout_centerHorizontal="true"
+        android:maxLines="1"
+        android:singleLine="true"
         tools:ignore="TextFields" />
 
     <EditText
@@ -26,6 +28,8 @@
         android:layout_marginTop="11dp"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/bottomTextInput"
+        android:maxLines="1"
+        android:singleLine="true"
         tools:ignore="TextFields" />
 
     <Button
