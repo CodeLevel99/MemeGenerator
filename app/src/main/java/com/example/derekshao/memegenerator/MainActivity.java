@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +18,11 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 
 public class MainActivity extends AppCompatActivity implements TopSectionFragment.TopSectionListener {
 
@@ -32,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
 
     //debug tag
     private static String TAG = "derekishere";
+
+    //final String path = Environment.DIRECTORY_DCIM;
 
 
     @Override
@@ -96,21 +105,36 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
 
     public void saveImage() {
         Log.v(TAG, "save image");
-        meme_photo.setDrawingCacheEnabled(true);
-        try {
-            Bitmap meme = meme_photo.getDrawingCache();
-            MediaStore.Images.Media.insertImage(MainActivity.this.getContentResolver(), meme, "Meme", "Meme description");
-            Toast.makeText(MainActivity.this, "Image saved successfuly.", Toast.LENGTH_LONG).show();
-        }
-        catch(Exception e) {
-            Toast.makeText(MainActivity.this, "Unable to save image.", Toast.LENGTH_LONG).show();
-        }
 
+        meme_photo.buildDrawingCache();
+        Bitmap memeBitmap = meme_photo.getDrawingCache();
+
+
+        String sdCard = Environment.getExternalStorageDirectory().toString();
+        String filename = String.format("%d.png", System.currentTimeMillis());
+
+        FileOutputStream os = null;
+
+        File file = new File(sdCard, filename);
+
+        try {
+            os = new FileOutputStream(file);
+
+            memeBitmap.compress(Bitmap.CompressFormat.PNG, 100, os);
+            os.flush();
+            os.close();
+
+            MediaStore.Images.Media.insertImage(getContentResolver(), file.getAbsolutePath(), file.getName(), file.getName());
+
+        }
+        catch(IOException e) {
+            Toast.makeText(MainActivity.this, "Unable to save image." , Toast.LENGTH_SHORT).show();
+            Log.v(TAG, e.toString());
+        }
     }
 
     //restores default gnome child image
     public void restoreDefault() {
-        Log.v(TAG, "reached");
         Drawable image = ResourcesCompat.getDrawable(getResources(), R.drawable.gnome_child, null);
         meme_photo.setBackground(image);
     }
