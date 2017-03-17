@@ -2,10 +2,12 @@ package com.example.derekshao.memegenerator;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.content.res.ResourcesCompat;
@@ -18,11 +20,9 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 
 public class MainActivity extends AppCompatActivity implements TopSectionFragment.TopSectionListener {
 
@@ -36,12 +36,11 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
     private static int REQUEST_IMAGE_CAPTURE = 1;
     private static int SELECT_IMAGE = 2;
 
+    //font
+    private static Typeface impact_font;
 
-    //debug tag
+    //log tag
     private static String TAG = "derekishere";
-
-    //final String path = Environment.DIRECTORY_DCIM;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,16 +51,15 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //textviews
+        //views
         topMemeText = (TextView) findViewById(R.id.topMemeText);
         bottomMemeText = (TextView) findViewById(R.id.bottomMemeText);
-
         meme_photo = (ImageView) findViewById(R.id.photoImage);
 
-        Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/impact.ttf");
-        topMemeText.setTypeface(myCustomFont);
-        bottomMemeText.setTypeface(myCustomFont);
-
+        //set textviews text as impact.tff
+        impact_font = Typeface.createFromAsset(getAssets(), "fonts/impact.ttf");
+        topMemeText.setTypeface(impact_font);
+        bottomMemeText.setTypeface(impact_font);
     }
 
     //inflates menu
@@ -103,12 +101,11 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
         setMemeText(top, bottom);
     }
 
+    //stores image to gallery
     public void saveImage() {
-        Log.v(TAG, "save image");
 
         meme_photo.buildDrawingCache();
         Bitmap memeBitmap = meme_photo.getDrawingCache();
-
 
         String sdCard = Environment.getExternalStorageDirectory().toString();
         String filename = String.format("%d.png", System.currentTimeMillis());
@@ -117,6 +114,22 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
 
         File file = new File(sdCard, filename);
 
+        //canvas with meme photo as background
+        Canvas canvas = new Canvas(memeBitmap);
+
+        String topText= topMemeText.getText().toString();
+        String botText = bottomMemeText.getText().toString();
+
+        //paint for drawing on canvas
+        Paint textPaint = new Paint();
+        textPaint.setColor(Color.WHITE);
+        textPaint.setTypeface(impact_font);
+        textPaint.setTextAlign(Paint.Align.LEFT);
+        textPaint.setTextSize(100);
+
+        canvas.drawText(topText, canvas.getWidth()/2, 100, textPaint);
+
+        //remember to enable storage permission on phone
         try {
             os = new FileOutputStream(file);
 
@@ -126,6 +139,7 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
 
             MediaStore.Images.Media.insertImage(getContentResolver(), file.getAbsolutePath(), file.getName(), file.getName());
 
+            Toast.makeText(MainActivity.this, "Image saved successfully.", Toast.LENGTH_LONG).show();
         }
         catch(IOException e) {
             Toast.makeText(MainActivity.this, "Unable to save image." , Toast.LENGTH_SHORT).show();
