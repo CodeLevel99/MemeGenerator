@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +12,6 @@ import android.app.Activity;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.util.Log;
-
 
 public class TopSectionFragment extends Fragment {
 
@@ -22,8 +19,6 @@ public class TopSectionFragment extends Fragment {
     private EditText bottomTextInput;
 
     TopSectionListener activityCommander;
-
-    private static String TAG = "derekishere";
 
     //create interface to ensure MainActivity contains createMeme method
     public interface TopSectionListener {
@@ -104,9 +99,7 @@ public class TopSectionFragment extends Fragment {
 
     //uses override method createMeme in MainActivity
     public void buttonClicked(View view) {
-        Log.v(TAG, "yes");
-        Log.v(TAG, topTextInput.getText().toString());
-        Log.v(TAG, bottomTextInput.getText().toString());
         activityCommander.createMeme(topTextInput.getText().toString(), bottomTextInput.getText().toString());
+
     }
 }
