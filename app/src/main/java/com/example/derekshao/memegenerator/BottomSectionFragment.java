@@ -1,8 +1,7 @@
 package com.example.derekshao.memegenerator;
 
-import android.graphics.Bitmap;
+
 import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;

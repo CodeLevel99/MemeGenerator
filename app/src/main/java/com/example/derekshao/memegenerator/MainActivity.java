@@ -124,10 +124,13 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
         Paint textPaint = new Paint();
         textPaint.setColor(Color.WHITE);
         textPaint.setTypeface(impact_font);
-        textPaint.setTextAlign(Paint.Align.LEFT);
+        textPaint.setTextAlign(Paint.Align.CENTER);
         textPaint.setTextSize(100);
 
+
+        //top and bottom text positioned as seen as in the preview
         canvas.drawText(topText, canvas.getWidth()/2, 100, textPaint);
+        canvas.drawText(botText, canvas.getWidth()/2, 900, textPaint);
 
         //remember to enable storage permission on phone
         try {
