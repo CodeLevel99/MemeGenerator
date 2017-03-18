@@ -12,6 +12,10 @@
         "source": "C:\\Users\\Derek Shao\\AndroidStudioProjects\\MemeGenerator\\app\\src\\main\\res\\drawable-xhdpi\\arthur_hand.png"
     },
     {
+        "merged": "C:\\Users\\Derek Shao\\AndroidStudioProjects\\MemeGenerator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_menu_save.png",
+        "source": "C:\\Users\\Derek Shao\\AndroidStudioProjects\\MemeGenerator\\app\\src\\main\\res\\drawable-xhdpi\\ic_menu_save.png"
+    },
+    {
         "merged": "C:\\Users\\Derek Shao\\AndroidStudioProjects\\MemeGenerator\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\pepe.png",
         "source": "C:\\Users\\Derek Shao\\AndroidStudioProjects\\MemeGenerator\\app\\src\\main\\res\\drawable-xhdpi\\pepe.png"
     },

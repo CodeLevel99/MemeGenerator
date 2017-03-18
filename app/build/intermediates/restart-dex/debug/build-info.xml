@@ -5,40 +5,47 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="682307590525188"
+    timestamp="161464869676002"
     token="1503919518629000176"
-    verifier="COLD_SWAP_REQUESTED" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="297" />
+        duration="502" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="79" />
     <task
         name="instant-run-transform"
-        duration="57" />
+        duration="192" />
     <task
         name="verifier"
-        duration="3" />
+        duration="70" />
 
     <artifact
-        location="C:\Users\Derek Shao\AndroidStudioProjects\MemeGenerator\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
-        type="DEX" />
+        location="C:\Users\Derek Shao\AndroidStudioProjects\MemeGenerator\app\build\intermediates\reload-dex\debug\classes.dex"
+        type="RELOAD_DEX" />
 
     <build
-        timestamp="681002659910118"
-        verifier="MANIFEST_FILE_CHANGE" >
+        timestamp="160884311481467"
+        verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\Derek Shao\AndroidStudioProjects\MemeGenerator\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="682307590525188"
+        timestamp="161437469919372"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\Derek Shao\AndroidStudioProjects\MemeGenerator\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
             type="DEX" />
+    </build>
+    <build
+        timestamp="161464869676002"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\Derek Shao\AndroidStudioProjects\MemeGenerator\app\build\intermediates\reload-dex\debug\classes.dex"
+            type="RELOAD_DEX" />
     </build>
 
 </instant-run>
