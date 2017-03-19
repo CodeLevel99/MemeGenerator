@@ -1,6 +1,8 @@
 # MemeGenerator
-A meme generator created for Android mobile devices. Much faster than opening Paint (or Preview, can't forget the Mac users) on your computer and adding text boxes to your image.
+Project for learning Android development. 
 
+The MemeGenerator is created for Android mobile devices that is designed for faster meme creation than opening Paint on your computer and adding text boxes to your images. So this app probably saves you about 20 seconds. 
+:
 Features include:
 
 - taking pictures with your device and using it as a meme!
@@ -10,21 +12,16 @@ Features include:
 
 ![Alt text](/app/src/main/res/drawable-xhdpi/evil_kermit.png?raw=true "hey")
 
-Upcoming Features
+You could now also save your newly created meme to phone gallery (be sure to allow MemeGenerator access your storage - Mar. 18, 2017).
 
-- Accessing your images from your phone
-- Changing fonts/colors of text
-- Saving your meme to your phone
+But enough about the application. How are you doing? 
 
-And then I'm abandoning this garbage application.
 
 ![Alt text](/app/src/main/res/drawable-xhdpi/pepe.png?raw=true "hey")
 
-Thanks for reading! :)
+- DShao
 
 ![Alt text](/app/src/main/res/drawable-xxhdpi/gnome_child.png?raw=true "hey")
-
-
 
 
 

@@ -81,9 +81,6 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
             case R.id.action_restore:
                 restoreDefault();
                 return true;
-            case R.id.action_settings:
-                Toast.makeText(MainActivity.this, "Not available currently.", Toast.LENGTH_SHORT).show();
-                return true;
             case R.id.action_selectImage:
                 selectImageIntent();
                 return true;
