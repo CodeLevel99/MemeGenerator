@@ -1868,7 +1868,6 @@ containing a value of this type.
         public static final int action_restore=0x7f0b007b;
         public static final int action_save=0x7f0b007a;
         public static final int action_selectImage=0x7f0b007e;
-        public static final int action_settings=0x7f0b007f;
         public static final int action_takePhoto=0x7f0b007d;
         public static final int action_text=0x7f0b0061;
         public static final int actions=0x7f0b006e;

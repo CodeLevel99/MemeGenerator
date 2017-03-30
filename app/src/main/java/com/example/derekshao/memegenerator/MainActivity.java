@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
             Toast.makeText(MainActivity.this, "Image saved successfully.", Toast.LENGTH_LONG).show();
         }
         catch(IOException e) {
-            Toast.makeText(MainActivity.this, "Unable to save image." , Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Unable to save image." , Toast.LENGTH_LONG).show();
             Log.v(TAG, e.toString());
         }
     }
