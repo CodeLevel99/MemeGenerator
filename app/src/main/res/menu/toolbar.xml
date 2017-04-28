@@ -22,8 +22,13 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_selectImage"
+        android:icon="@android:drawable/ic_menu_gallery"
+        android:title="Select Image"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_DefaultImage"
         android:icon="@android:drawable/gallery_thumb"
-        android:title="@string/select_image"
+        android:title="Default Images"
         app:showAsAction="never"/>
 
 

@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.content.res.ResourcesCompat;
@@ -21,8 +22,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity implements TopSectionFragment.TopSectionListener {
 
@@ -34,7 +37,8 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
 
     //request codes
     private static int REQUEST_IMAGE_CAPTURE = 1;
-    private static int SELECT_IMAGE = 2;
+    private static int REQUEST_DEFAULT_IMAGE = 2;
+    private static int REQUEST_SELECT_IMAGE = 3;
 
     //font
     private static Typeface impact_font;
@@ -81,11 +85,14 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
             case R.id.action_restore:
                 restoreDefault();
                 return true;
-            case R.id.action_selectImage:
-                selectImageIntent();
+            case R.id.action_DefaultImage:
+                defaultImageIntent();
                 return true;
             case R.id.action_save:
                 saveImage();
+                return true;
+            case R.id.action_selectImage:
+                dispatchSelectImageIntent();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -142,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
             Toast.makeText(MainActivity.this, "Image saved successfully.", Toast.LENGTH_LONG).show();
         }
         catch(IOException e) {
-            Toast.makeText(MainActivity.this, "Unable to save image." , Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "Unable to save image (check app storage permissions)." , Toast.LENGTH_LONG).show();
             Log.v(TAG, e.toString());
         }
     }
@@ -161,13 +168,44 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
         }
     }
 
-    //creates select image intent
-    public void selectImageIntent() {
-        Intent start_image_selector = new Intent(this, selectImage.class);
-        startActivityForResult(start_image_selector, SELECT_IMAGE);
+    //creates select iamge intent
+    public void dispatchSelectImageIntent() {
+        Intent selectImageIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        selectImageIntent.setType("image/*");
+        selectImageIntent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
+        startActivityForResult(Intent.createChooser(selectImageIntent, "Select an image from your device"), REQUEST_SELECT_IMAGE);
     }
 
-    //result
+    //creates select image intent
+    public void defaultImageIntent() {
+        Intent start_image_selector = new Intent(this, selectImage.class);
+        startActivityForResult(start_image_selector, REQUEST_DEFAULT_IMAGE);
+    }
+
+    //set background image after selecting image
+    public void setBackgroundImage(String img_name) {
+
+        switch(img_name) {
+            case "Arthur":
+                Drawable arthur_hand = ResourcesCompat.getDrawable(getResources(), R.drawable.arthur_hand, null);
+                meme_photo.setBackground(arthur_hand);
+                break;
+            case "Pepe":
+                Drawable pepe = ResourcesCompat.getDrawable(getResources(), R.drawable.pepe, null);
+                meme_photo.setBackground(pepe);
+                break;
+            case "Evil Kermit":
+                Drawable evil_kermit = ResourcesCompat.getDrawable(getResources(), R.drawable.evil_kermit, null);
+                meme_photo.setBackground(evil_kermit);
+                break;
+            case "Donald":
+                Drawable donald = ResourcesCompat.getDrawable(getResources(), R.drawable.donald, null);
+                meme_photo.setBackground(donald);
+            default:
+                break;
+        }
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -181,27 +219,27 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
             Drawable image = new BitmapDrawable(getResources(), imageBitmap);
             meme_photo.setBackground(image);
         }
-        else if (requestCode == SELECT_IMAGE && resultCode == RESULT_OK) {
+        else if (requestCode == REQUEST_DEFAULT_IMAGE && resultCode == RESULT_OK) {
 
             Bundle extras = data.getExtras();
             String img_name = extras.getString("image");
 
-            switch(img_name) {
-                case "Arthur":
-                    Drawable arthur_hand = ResourcesCompat.getDrawable(getResources(), R.drawable.arthur_hand, null);
-                    meme_photo.setBackground(arthur_hand);
-                    break;
-                case "Pepe":
-                    Drawable pepe = ResourcesCompat.getDrawable(getResources(), R.drawable.pepe, null);
-                    meme_photo.setBackground(pepe);
-                    break;
-                case "Evil Kermit":
-                    Drawable evil_kermit = ResourcesCompat.getDrawable(getResources(), R.drawable.evil_kermit, null);
-                    meme_photo.setBackground(evil_kermit);
-                    break;
-                default:
-                    break;
+            setBackgroundImage(img_name);
+
+        }
+        else if (requestCode == REQUEST_SELECT_IMAGE && resultCode == RESULT_OK) {
+            Uri selectedImage = data.getData();
+            Drawable newImage;
+
+            try {
+                InputStream inputStream = getContentResolver().openInputStream(selectedImage);
+                newImage = Drawable.createFromStream(inputStream, selectedImage.toString());
+                meme_photo.setBackground(newImage);
             }
+            catch(FileNotFoundException e) {
+                Toast.makeText(MainActivity.this, "Unable to set new image.", Toast.LENGTH_SHORT).show();
+            }
+
         }
     }
 
