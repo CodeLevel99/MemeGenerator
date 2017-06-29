@@ -43,9 +43,6 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
     //font
     private static Typeface impact_font;
 
-    //log tag
-    private static String TAG = "derekishere";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -150,7 +147,7 @@ public class MainActivity extends AppCompatActivity implements TopSectionFragmen
         }
         catch(IOException e) {
             Toast.makeText(MainActivity.this, "Unable to save image (check app storage permissions)." , Toast.LENGTH_LONG).show();
-            Log.v(TAG, e.toString());
+            Log.e(this.getLocalClassName(), e.toString());
         }
     }
 
